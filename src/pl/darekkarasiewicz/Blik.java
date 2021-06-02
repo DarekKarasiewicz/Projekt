@@ -14,13 +14,17 @@ public class Blik {
     int e=random.nextInt(8)+1;
     int f=random.nextInt(8)+1;
     JLabel blikCode= new JLabel();
+    JLabel label= new JLabel();
     JFrame frame = new JFrame();
     JButton button=new JButton("Back");
     public Blik(Account account) {
+        label.setText("Twój kod blick to : ");
+        label.setBounds(90,10,150,40);
         blikCode.setText(String.format("%d%d%d-%d%d%d",a,b,c,d,e,f));
-        blikCode.setBounds(115,30,100,40);
+        blikCode.setBounds(115,40,100,40);
         blikCode.getFont();
         button.setBounds(90,100,100,40);
+        frame.add(label);
         frame.add(button);
         frame.add(blikCode);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
