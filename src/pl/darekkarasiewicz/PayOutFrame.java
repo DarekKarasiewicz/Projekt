@@ -33,6 +33,9 @@ public class PayOutFrame {
                 if(account.getBalance()>Integer.parseInt(textField.getText())){
                 int suma =account.getBalance();
                 account.setBalance(suma-Integer.parseInt(textField.getText()));}
+                else if (Integer.parseInt(textField.getText())<0){
+                    error.setText("nie można wypłacić kwoty poniżej 0 ");
+                }
                 else {
                     error.setText(String.format("nie można wypłacić takiej kwoty maksymalna kwota to : %d",account.getBalance()));
 

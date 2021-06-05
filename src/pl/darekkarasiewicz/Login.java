@@ -6,10 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Login  {
-    int a=4;
-    Account[] konta;
-    JFrame window1 =new JFrame("Login");
-    JPasswordField password= new JPasswordField();
+    private int a=4;
+    private Account[] konta;
+    private JFrame window1 =new JFrame("Login");
+    private JPasswordField password= new JPasswordField();
     JLabel labelPass = new JLabel();
     JLabel labelerror = new JLabel();
     JButton loginButton= new JButton("Login");
@@ -28,7 +28,6 @@ public class Login  {
         window1.setSize(300,200);
         window1.setLocationRelativeTo(null);
         window1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        window1.setVisible(true);
         window1.add(labelerror);
         window1.add(labelPass);
         window1.add(password);
@@ -54,7 +53,7 @@ public class Login  {
             else {
                 window1.dispose();
                 }}
-        });
+        });window1.setVisible(true);
     }
 
 
