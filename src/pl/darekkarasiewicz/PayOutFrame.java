@@ -30,15 +30,17 @@ public class PayOutFrame {
         wyplac.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(account.getBalance()>Integer.parseInt(textField.getText())){
-                int suma =account.getBalance();
-                account.setBalance(suma-Integer.parseInt(textField.getText()));}
-                else if (Integer.parseInt(textField.getText())<0){
+                if(Integer.parseInt(textField.getText())<0){
                     error.setText("nie można wypłacić kwoty poniżej 0 ");
+                    error.setVisible(true);
+                }
+                else if (account.getBalance()>Integer.parseInt(textField.getText())){
+                    int suma =account.getBalance();
+                    account.setBalance(suma-Integer.parseInt(textField.getText()));
                 }
                 else {
                     error.setText(String.format("nie można wypłacić takiej kwoty maksymalna kwota to : %d",account.getBalance()));
-
+                    error.setVisible(true);
                 }
             }
         });
