@@ -5,12 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Alertbox {
-    int a=2;
-    Account account;
-    JLabel label= new JLabel();
-    JButton button = new JButton("OK");
-    JFrame alertBox= new JFrame();
-    JLabel labelerror = new JLabel();
+    private int a=2;
+    private  Account account;
+    private  JLabel label= new JLabel();
+    private JButton button = new JButton("OK");
+    private JFrame alertBox= new JFrame();
+    private JLabel labelerror = new JLabel();
 
     JPasswordField pin = new JPasswordField();
     public Alertbox(Account account) {

@@ -6,17 +6,17 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class Blik {
-    Random random=new Random();
-    int a=random.nextInt(8)+1;
-    int b=random.nextInt(8)+1;
-    int c=random.nextInt(8)+1;
-    int d=random.nextInt(8)+1;
-    int e=random.nextInt(8)+1;
-    int f=random.nextInt(8)+1;
-    JLabel blikCode= new JLabel();
-    JLabel label= new JLabel();
-    JFrame frame = new JFrame();
-    JButton button=new JButton("Back");
+    private Random random=new Random();
+    private  int a=random.nextInt(8)+1;
+    private  int b=random.nextInt(8)+1;
+    private int c=random.nextInt(8)+1;
+    private  int d=random.nextInt(8)+1;
+    private int e=random.nextInt(8)+1;
+    private int f=random.nextInt(8)+1;
+    private JLabel blikCode= new JLabel();
+    private JLabel label= new JLabel();
+    private JFrame frame = new JFrame();
+    private JButton button=new JButton("Back");
     public Blik(Account account) {
         label.setText("Twój kod blick to : ");
         label.setBounds(90,10,150,40);

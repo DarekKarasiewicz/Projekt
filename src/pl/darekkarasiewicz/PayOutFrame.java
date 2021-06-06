@@ -5,19 +5,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PayOutFrame {
-    Account account;
-    JFrame frame= new JFrame();
-    JLabel tekst=new JLabel();
-    JLabel error=new JLabel();
-    JTextField textField= new JTextField();
-    JButton button=new JButton("Back");
-    JButton wyplac=new JButton("Wypłać");
+    private Account account;
+    private JFrame frame= new JFrame();
+    private JLabel tekst=new JLabel();
+    private JLabel saldo=new JLabel();
+    private JLabel error=new JLabel();
+    private JTextField textField= new JTextField();
+    private JButton button=new JButton("Back");
+    private JButton wyplac=new JButton("Wypłać");
     public PayOutFrame(Account account) {
         frame.add(tekst);
         frame.add(textField);
         frame.add(button);
         frame.add(wyplac);
         frame.add(error);
+        frame.add(saldo);
+        saldo.setBounds(50,200,400,100);
         error.setBounds(50,200,400,100);
         tekst.setBounds(100,50,100,100);
         textField.setBounds(200,50,100,50);
@@ -37,6 +40,7 @@ public class PayOutFrame {
                 else if (account.getBalance()>Integer.parseInt(textField.getText())){
                     int suma =account.getBalance();
                     account.setBalance(suma-Integer.parseInt(textField.getText()));
+                    error.setText(String.format("Saldo po wypłacie : %d",account.getBalance()));
                 }
                 else {
                     error.setText(String.format("nie można wypłacić takiej kwoty maksymalna kwota to : %d",account.getBalance()));

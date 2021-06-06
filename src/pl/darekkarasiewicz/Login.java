@@ -10,9 +10,9 @@ public class Login  {
     private Account[] konta;
     private JFrame window1 =new JFrame("Login");
     private JPasswordField password= new JPasswordField();
-    JLabel labelPass = new JLabel();
-    JLabel labelerror = new JLabel();
-    JButton loginButton= new JButton("Login");
+    private JLabel labelPass = new JLabel();
+    private JLabel labelerror = new JLabel();
+    private JButton loginButton= new JButton("Login");
     public Login(Account[] konta) {
         this.konta=konta;
         password.setBounds(100,50,165,25);

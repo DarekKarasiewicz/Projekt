@@ -6,11 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SaldoFrame {
-    Account account;
-    JFrame salodFrame= new JFrame();
-    JLabel tekst=new JLabel();
-    JLabel saldo=new JLabel();
-    JButton button=new JButton("Back");
+    private  Account account;
+    private JFrame salodFrame= new JFrame();
+    private JLabel tekst=new JLabel();
+    private JLabel saldo=new JLabel();
+    private JButton button=new JButton("Back");
 
     public SaldoFrame(Account account) {
         this.account=account;

@@ -8,17 +8,17 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class MainWindow  {
-    LocalDate localDate= LocalDate.now();
+    private  LocalDate localDate= LocalDate.now();
 
-    JLabel data = new JLabel();
-    Account account1;
-    JFrame window2 =new JFrame("Welcome");
-    JLabel account=new JLabel();
-    JButton saldoButton =new JButton("Saldo");
-    JButton payIn =new JButton("Wpłać");
-    JButton payOut =new JButton("Wypłać");
-    JButton blik= new JButton("Blik");
-    JButton exit= new JButton("Wyjście");
+    private  JLabel data = new JLabel();
+    private Account account1;
+    private JFrame window2 =new JFrame("Welcome");
+    private JLabel account=new JLabel();
+    private JButton saldoButton =new JButton("Saldo");
+    private JButton payIn =new JButton("Wpłać");
+    private JButton payOut =new JButton("Wypłać");
+    private JButton blik= new JButton("Blik");
+    private JButton exit= new JButton("Wyjście");
     public MainWindow(Account account1) {
         int month=localDate.getMonthValue();
         int year=localDate.getYear();
@@ -77,7 +77,6 @@ public class MainWindow  {
                 window2.dispose();
             }
         });
-
         window2.setSize(420,420);
         window2.setLayout(null);
         window2.setLocationRelativeTo(null);
