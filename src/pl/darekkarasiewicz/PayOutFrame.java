@@ -34,8 +34,7 @@ public class PayOutFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(Integer.parseInt(textField.getText())<0){
-                    error.setText("nie można wypłacić kwoty poniżej 0 ");
-                    error.setVisible(true);
+                    JOptionPane.showMessageDialog(null,"Nie można wypłacić kwoty ponieżej 0","Error",JOptionPane.ERROR_MESSAGE);
                 }
                 else if (account.getBalance()>Integer.parseInt(textField.getText())){
                     int suma =account.getBalance();
@@ -43,8 +42,7 @@ public class PayOutFrame {
                     error.setText(String.format("Saldo po wypłacie : %d",account.getBalance()));
                 }
                 else {
-                    error.setText(String.format("nie można wypłacić takiej kwoty maksymalna kwota to : %d",account.getBalance()));
-                    error.setVisible(true);
+                    JOptionPane.showMessageDialog(null,String.format("nie można wypłacić takiej kwoty maksymalna kwota to : %d",account.getBalance()),"error",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
