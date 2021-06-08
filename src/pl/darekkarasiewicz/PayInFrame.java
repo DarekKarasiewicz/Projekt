@@ -41,6 +41,7 @@ public class PayInFrame {
                     error.setText(String.format("Saldo po wpłacie : %d",account.getBalance()));
                 }
                 else{
+                    textField.setText(null);
                     JOptionPane.showMessageDialog(null,"Nie można wpłacić kwoty ponieżej 0","Error",JOptionPane.ERROR_MESSAGE);
 
                 }

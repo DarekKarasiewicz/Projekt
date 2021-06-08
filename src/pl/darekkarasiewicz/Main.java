@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main {
-
     public static void main(String[] args) {
         Account nr1= new Account(1111,1,2000);
         Account nr2= new Account(2222,2,3000);
