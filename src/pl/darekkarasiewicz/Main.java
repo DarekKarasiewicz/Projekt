@@ -13,7 +13,8 @@ public class Main {
         Account nr4= new Account(4444,4,2000);
         Account nr5= new Account(5555,5,2000);
         Account nr6= new Account(6666,6,2000);
-        Account [] konta = new Account[]{nr1,nr2,nr3,nr4,nr5,nr6};
+        Account nr7= new Account(7777,7,2000);
+        Account [] konta = new Account[]{nr1,nr2,nr3,nr4,nr5,nr6,nr7};
         Login login= new Login(konta);
         //MainWindow mainWindow =new MainWindow(1);
     }

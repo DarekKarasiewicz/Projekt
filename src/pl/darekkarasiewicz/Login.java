@@ -4,9 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -59,7 +57,7 @@ public class Login {
                         bans.add(scanner.nextLine());
                     }
                     for (String ban : bans) {
-                        if (Integer.parseInt(ban) == Integer.parseInt(String.valueOf(password.getPassword()))){
+                        if (Integer.parseInt(ban) == Integer.parseInt(nr.getText())){
                         JOptionPane.showMessageDialog(null,"Zbanowany","error",JOptionPane.ERROR_MESSAGE);
                         window1.dispose();
                         a=2;
@@ -82,11 +80,20 @@ public class Login {
                                 }
                             }
                     } else {
-
+                        //bans.add(nr.getText());
+                        FileWriter fileWriter = new FileWriter("C:\\Users\\darek\\IdeaProjects\\Projekt\\Ban.txt");
+                        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                        for (String ban : bans) {
+                            bufferedWriter.write(ban+"\n");
+                        }
+                        bufferedWriter.write(nr.getText());
+                        bufferedWriter.close();
                         window1.dispose();
                     }
                 } catch (NumberFormatException | FileNotFoundException a) {
                     JOptionPane.showMessageDialog(null, "Nr lub pin muszą być liczbą", "error", JOptionPane.ERROR_MESSAGE);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
             }
         });
