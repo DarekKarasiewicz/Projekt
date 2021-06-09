@@ -1,9 +1,12 @@
 package pl.darekkarasiewicz;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import javax.xml.crypto.Data;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -20,6 +23,19 @@ public class MainWindow  {
     private JButton blik= new JButton("Blik");
     private JButton exit= new JButton("Wyjście");
     public MainWindow(Account account1) {
+        try {
+            AudioInputStream audioInputStream= AudioSystem.getAudioInputStream(new File("C:\\Users\\darek\\IdeaProjects\\Projekt\\elevatorMusic.wav").getAbsoluteFile());
+            Clip clip =AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
+
         int month=localDate.getMonthValue();
         int year=localDate.getYear();
         int day=localDate.getDayOfMonth();
@@ -41,6 +57,7 @@ public class MainWindow  {
         window2.add(payOut);
         window2.add(saldoButton);
         window2.add(exit);
+
 
         blik.addActionListener(new ActionListener() {
             @Override
