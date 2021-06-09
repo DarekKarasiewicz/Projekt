@@ -1,10 +1,12 @@
 package pl.darekkarasiewicz;
 
+import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 import javax.swing.*;
 import javax.xml.crypto.Data;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -50,6 +52,12 @@ public class MainWindow  {
         window2.add(payOut);
         window2.add(saldoButton);
         window2.add(exit);
+            try {
+                BufferedImage image = ImageIO.read(new File("C:\\Users\\darek\\IdeaProjects\\Projekt\\grafika\\icon.png"));
+                window2.setIconImage(image);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
 
         blik.addActionListener(new ActionListener() {

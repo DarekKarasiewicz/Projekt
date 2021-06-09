@@ -1,8 +1,12 @@
 package pl.darekkarasiewicz;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 public class Blik {
@@ -38,6 +42,12 @@ public class Blik {
                 MainWindow mainWindow= new MainWindow(account);
             }
         });
+        try {
+            BufferedImage image = ImageIO.read(new File("C:\\Users\\darek\\IdeaProjects\\Projekt\\grafika\\icon.png"));
+            frame.setIconImage(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         frame.setResizable(false);
         frame.setVisible(true);
 

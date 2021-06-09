@@ -1,9 +1,11 @@
 package pl.darekkarasiewicz;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -45,7 +47,12 @@ public class Login {
         window1.add(loginButton);
         window1.setResizable(false);
 
-
+        try {
+            BufferedImage image = ImageIO.read(new File("C:\\Users\\darek\\IdeaProjects\\Projekt\\grafika\\icon.png"));
+            window1.setIconImage(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -90,7 +97,8 @@ public class Login {
                         bufferedWriter.close();
                         window1.dispose();
                     }
-                } catch (NumberFormatException | FileNotFoundException a) {
+                }
+                catch (NumberFormatException | FileNotFoundException a) {
                     JOptionPane.showMessageDialog(null, "Nr lub pin muszą być liczbą", "error", JOptionPane.ERROR_MESSAGE);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();

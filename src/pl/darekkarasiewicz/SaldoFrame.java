@@ -1,9 +1,13 @@
 package pl.darekkarasiewicz;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class SaldoFrame {
     private  Account account;
@@ -26,6 +30,13 @@ public class SaldoFrame {
         salodFrame.setSize(420,420);
         salodFrame.setLayout(null);
         salodFrame.setLocationRelativeTo(null);
+        try {
+            BufferedImage image = ImageIO.read(new File("C:\\Users\\darek\\IdeaProjects\\Projekt\\grafika\\icon.png"));
+            salodFrame.setIconImage(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
