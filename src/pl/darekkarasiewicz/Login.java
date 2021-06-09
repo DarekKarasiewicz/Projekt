@@ -9,15 +9,20 @@ public class Login  {
     private int a=4;
     private Account[] konta;
     private JFrame window1 =new JFrame("Login");
+    private JTextField nr=new JTextField();
     private JPasswordField password= new JPasswordField();
     private JLabel labelPass = new JLabel();
+    private JLabel labelnr = new JLabel();
     private JLabel labelerror = new JLabel();
     private JButton loginButton= new JButton("Login");
     public Login(Account[] konta) {
         this.konta=konta;
-        password.setBounds(100,50,165,25);
-        labelPass.setBounds(15,50,80,25);
+        labelnr.setBounds(15,30,80,25);
+        nr.setBounds(100,30,165,25);
+        password.setBounds(100,60,165,25);
+        labelPass.setBounds(15,60,80,25);
         labelPass.setText("Pin");
+        labelnr.setText("Nr.");
         labelerror.setBounds(125,75,70,50);
         labelerror.setText(String.format("Error"));
         labelerror.getBorder();
@@ -29,23 +34,33 @@ public class Login  {
         window1.setLocationRelativeTo(null);
         window1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         window1.add(labelerror);
+        window1.add(labelnr);
+        window1.add(nr);
         window1.add(labelPass);
         window1.add(password);
         window1.add(loginButton);
+        window1.setResizable(false);
+
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+
+
                 if (a>=-1){
                 for (Account account : konta) {
-                    if (Integer.parseInt(String.valueOf(password.getPassword()))==account.getPin()) {
+                    if (account.getNumber()==Integer.parseInt(nr.getText())){
+                        Account account1=account;
+                        if (Integer.parseInt(String.valueOf(password.getPassword()))==account1.getPin()) {
                             window1.dispose();
                             MainWindow mainWindow= new MainWindow(account);
                     }
-                    else if (Integer.parseInt(String.valueOf(password.getPassword()))!=account.getPin()){
+                        else if (Integer.parseInt(String.valueOf(password.getPassword()))!=account1.getPin()){
                             labelerror.setVisible(true);
                             a-=1;
                     }
 
+                }
                 }
 
 
@@ -53,7 +68,11 @@ public class Login  {
             else {
                 window1.dispose();
                 }}
-        });window1.setVisible(true);
+               catch (NumberFormatException a){
+                   JOptionPane.showMessageDialog(null,"Nr lub pin muszą być liczbą","error",JOptionPane.ERROR_MESSAGE);
+            }}
+        });
+        window1.setVisible(true);
     }
 
 

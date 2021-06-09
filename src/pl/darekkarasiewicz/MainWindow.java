@@ -28,13 +28,6 @@ public class MainWindow  {
             Clip clip =AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
-        }
 
         int month=localDate.getMonthValue();
         int year=localDate.getYear();
@@ -64,6 +57,8 @@ public class MainWindow  {
             public void actionPerformed(ActionEvent e) {
                 window2.dispose();
                 Blik blik= new Blik(account1);
+                clip.stop();
+
             }
         });
 
@@ -72,6 +67,7 @@ public class MainWindow  {
             public void actionPerformed(ActionEvent e) {
                 window2.dispose();
                 Alertbox alertbox= new Alertbox(account1);
+                clip.stop();
             }
         });
         payIn.addActionListener(new ActionListener() {
@@ -79,6 +75,7 @@ public class MainWindow  {
             public void actionPerformed(ActionEvent e) {
                 window2.dispose();
                 PayInFrame payInFrame =new PayInFrame(account1);
+                clip.stop();
             }
         });
         saldoButton.addActionListener(new ActionListener() {
@@ -86,18 +83,29 @@ public class MainWindow  {
             public void actionPerformed(ActionEvent e) {
                 window2.dispose();
                 SaldoFrame saldoFrame= new SaldoFrame(account1);
+                clip.stop();
             }
         });
         exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 window2.dispose();
+                clip.stop();
             }
         });
+
         window2.setSize(420,420);
         window2.setLayout(null);
         window2.setLocationRelativeTo(null);
+        window2.setResizable(false);
         window2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         window2.setVisible(true);
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -55,7 +55,7 @@ public class PayInFrame {
                 MainWindow mainWindow= new MainWindow(account);
             }
         });
-
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 }

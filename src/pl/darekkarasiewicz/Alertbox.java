@@ -25,6 +25,7 @@ public class Alertbox {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try{
                 if(a>0){
                 if (Integer.parseInt(String.valueOf(pin.getPassword()))==(account.getPin())){
                     PayOutFrame payOutFrame =new PayOutFrame(account);
@@ -37,7 +38,8 @@ public class Alertbox {
                 else{
                     alertBox.dispose();
                     MainWindow mainWindow = new MainWindow(account);
-                };
+                };}catch (NumberFormatException a){
+                    JOptionPane.showMessageDialog(null,"Nr lub pin muszą być liczbą","error",JOptionPane.ERROR_MESSAGE);}
         }
         }
         );
@@ -47,6 +49,7 @@ public class Alertbox {
         alertBox.add(label);
         alertBox.add(button);
         alertBox.add(pin);
+        alertBox.setResizable(false);
         alertBox.setSize(300,200);
         alertBox.setLocationRelativeTo(null);
         alertBox.setVisible(true);

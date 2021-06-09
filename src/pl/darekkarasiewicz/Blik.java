@@ -38,6 +38,7 @@ public class Blik {
                 MainWindow mainWindow= new MainWindow(account);
             }
         });
+        frame.setResizable(false);
         frame.setVisible(true);
 
     }

@@ -32,6 +32,8 @@ public class SaldoFrame {
                 salodFrame.dispose();
                 MainWindow mainWindow= new MainWindow(account);
             }
-        });salodFrame.setVisible(true);
+        });
+        salodFrame.setResizable(false);
+        salodFrame.setVisible(true);
     }
 }
