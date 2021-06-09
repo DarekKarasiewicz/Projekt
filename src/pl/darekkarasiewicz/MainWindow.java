@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 import javax.swing.*;
 import javax.xml.crypto.Data;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -26,23 +27,24 @@ public class MainWindow  {
     private JButton exit= new JButton("Wyjście");
     public MainWindow(Account account1) {
         try {
+            window2.getContentPane().setBackground(Color.cyan);
             AudioInputStream audioInputStream= AudioSystem.getAudioInputStream(new File("C:\\Users\\darek\\IdeaProjects\\Projekt\\elevatorMusic.wav").getAbsoluteFile());
             Clip clip =AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
 
-        int month=localDate.getMonthValue();
-        int year=localDate.getYear();
-        int day=localDate.getDayOfMonth();
-        data.setText(String.format("%d-%d-%d",day,month,year));
-        this.account1=account1;
-        int nr=account1.getNumber();
-        account.setText(String.format("Twoje konto to:%d",nr));
-        data.setBounds(175,-40,100,100);
-        account.setBounds(140,-20,100,100);
-        saldoButton.setBounds(70,100,100,40);
-        payIn.setBounds(70,200,100,40);
-        payOut.setBounds(70,300,100,40);
+            int month=localDate.getMonthValue();
+            int year=localDate.getYear();
+            int day=localDate.getDayOfMonth();
+            data.setText(String.format("%d-%d-%d",day,month,year));
+            this.account1=account1;
+            int nr=account1.getNumber();
+            account.setText(String.format("Twoje konto to:%d",nr));
+            data.setBounds(175,-40,100,100);
+            account.setBounds(140,-20,100,100);
+            saldoButton.setBounds(70,100,100,40);
+            payIn.setBounds(70,200,100,40);
+            payOut.setBounds(70,300,100,40);
         blik.setBounds(240,100,100,40);
         exit.setBounds(240,300,100,40);
         window2.add(account);

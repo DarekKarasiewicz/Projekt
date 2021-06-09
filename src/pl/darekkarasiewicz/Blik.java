@@ -2,6 +2,7 @@ package pl.darekkarasiewicz;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -22,6 +23,7 @@ public class Blik {
     private JFrame frame = new JFrame();
     private JButton button=new JButton("Back");
     public Blik(Account account) {
+        frame.getContentPane().setBackground(Color.orange);
         label.setText("Twój kod blick to : ");
         label.setBounds(90,10,150,40);
         blikCode.setText(String.format("%d%d%d-%d%d%d",a,b,c,d,e,f));

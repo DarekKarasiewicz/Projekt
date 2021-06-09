@@ -23,6 +23,7 @@ public class Login {
 
     public Login(Account[] konta) {
         this.konta = konta;
+        window1.getContentPane().setBackground(Color.cyan);
         labelnr.setBounds(15, 30, 80, 25);
         nr.setBounds(100, 30, 165, 25);
         password.setBounds(100, 60, 165, 25);

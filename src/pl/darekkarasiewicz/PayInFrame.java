@@ -2,6 +2,7 @@ package pl.darekkarasiewicz;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -19,6 +20,7 @@ public class PayInFrame {
     private JButton wplac=new JButton("wplac");
 
     public PayInFrame(Account account) {
+        frame.getContentPane().setBackground(Color.cyan);
         this.account=account;
         frame.add(tekst);
         frame.add(textField);

@@ -17,6 +17,7 @@ public class SaldoFrame {
     private JButton button=new JButton("Back");
 
     public SaldoFrame(Account account) {
+        salodFrame.getContentPane().setBackground(Color.cyan);
         this.account=account;
         saldo.setText(String.valueOf(account.getBalance()));
         saldo.setBounds(200,50,100,100);

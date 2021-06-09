@@ -2,6 +2,7 @@ package pl.darekkarasiewicz;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -9,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class PayOutFrame {
+
     private Account account;
     private JFrame frame= new JFrame();
     private JLabel tekst=new JLabel();
@@ -18,6 +20,7 @@ public class PayOutFrame {
     private JButton button=new JButton("Back");
     private JButton wyplac=new JButton("Wypłać");
     public PayOutFrame(Account account) {
+        frame.getContentPane().setBackground(Color.cyan);
         frame.add(tekst);
         frame.add(textField);
         frame.add(button);

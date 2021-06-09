@@ -2,6 +2,7 @@ package pl.darekkarasiewicz;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -18,6 +19,7 @@ public class Alertbox {
 
     JPasswordField pin = new JPasswordField();
     public Alertbox(Account account) {
+        alertBox.getContentPane().setBackground(Color.red);
         this.account=account;
         labelerror.setText(String.format("Error"));
         label.setText("Wprowadz ponownie pin: ");
