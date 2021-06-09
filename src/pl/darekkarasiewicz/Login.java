@@ -82,6 +82,7 @@ public class Login {
                                 }
                             }
                     } else {
+
                         window1.dispose();
                     }
                 } catch (NumberFormatException | FileNotFoundException a) {
