@@ -48,6 +48,7 @@ public class PayInFrame {
         wplac.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try{
                 int suma=account.getBalance();
                 if (Integer.parseInt(textField.getText())>0){
                     account.setBalance(suma+Integer.parseInt(textField.getText()));
@@ -57,6 +58,9 @@ public class PayInFrame {
                     textField.setText(null);
                     JOptionPane.showMessageDialog(null,"Nie można wpłacić kwoty ponieżej 0","Error",JOptionPane.ERROR_MESSAGE);
 
+                }}catch (NumberFormatException a){
+                    textField.setText(null);
+                    JOptionPane.showMessageDialog(null, "Kwota musi być liczbą", "error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
