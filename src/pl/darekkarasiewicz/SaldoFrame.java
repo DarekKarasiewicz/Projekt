@@ -15,8 +15,10 @@ public class SaldoFrame {
     private JLabel tekst=new JLabel();
     private JLabel saldo=new JLabel();
     private JButton button=new JButton("Back");
+    private Account [] konta;
 
-    public SaldoFrame(Account account) {
+    public SaldoFrame(Account account , Account[] konta) {
+        this.konta=konta;
         salodFrame.getContentPane().setBackground(Color.cyan);
         this.account=account;
         saldo.setText(String.valueOf(account.getBalance()));
@@ -42,7 +44,7 @@ public class SaldoFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 salodFrame.dispose();
-                MainWindow mainWindow= new MainWindow(account);
+                MainWindow mainWindow= new MainWindow(account,konta);
             }
         });
         salodFrame.setResizable(false);

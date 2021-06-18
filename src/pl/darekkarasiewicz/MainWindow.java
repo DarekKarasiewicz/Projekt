@@ -18,14 +18,17 @@ public class MainWindow  {
 
     private  JLabel data = new JLabel();
     private Account account1;
+    private Account [] konta;
     private JFrame window2 =new JFrame("Welcome");
     private JLabel account=new JLabel();
     private JButton saldoButton =new JButton("Saldo");
     private JButton payIn =new JButton("Wpłać");
     private JButton payOut =new JButton("Wypłać");
     private JButton blik= new JButton("Blik");
+    private JButton paySomone= new JButton("Przelew");
     private JButton exit= new JButton("Wyjście");
-    public MainWindow(Account account1) {
+    public MainWindow(Account account1 , Account[] konta) {
+        this.konta=konta;
         try {
             window2.getContentPane().setBackground(Color.cyan);
             AudioInputStream audioInputStream= AudioSystem.getAudioInputStream(new File("C:\\Users\\darek\\IdeaProjects\\Projekt\\elevatorMusic.wav").getAbsoluteFile());
@@ -47,6 +50,7 @@ public class MainWindow  {
             payOut.setBounds(70,300,100,40);
         blik.setBounds(240,100,100,40);
         exit.setBounds(240,300,100,40);
+        paySomone.setBounds(240,200,100,40);
         window2.add(account);
         window2.add(data);
         window2.add(blik);
@@ -54,6 +58,7 @@ public class MainWindow  {
         window2.add(payOut);
         window2.add(saldoButton);
         window2.add(exit);
+        window2.add(paySomone);
             try {
                 BufferedImage image = ImageIO.read(new File("C:\\Users\\darek\\IdeaProjects\\Projekt\\grafika\\icon.png"));
                 window2.setIconImage(image);
@@ -66,17 +71,25 @@ public class MainWindow  {
             @Override
             public void actionPerformed(ActionEvent e) {
                 window2.dispose();
-                Blik blik= new Blik(account1);
+                Blik blik= new Blik(account1,konta);
                 clip.stop();
 
             }
         });
+            paySomone.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    window2.dispose();
+                    PaySomeone paySomeone= new PaySomeone(account1,konta);
+                    clip.stop();
 
+                }
+            });
         payOut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 window2.dispose();
-                Alertbox alertbox= new Alertbox(account1);
+                Alertbox alertbox= new Alertbox(account1,konta);
                 clip.stop();
             }
         });
@@ -84,7 +97,7 @@ public class MainWindow  {
             @Override
             public void actionPerformed(ActionEvent e) {
                 window2.dispose();
-                PayInFrame payInFrame =new PayInFrame(account1);
+                PayInFrame payInFrame =new PayInFrame(account1,konta);
                 clip.stop();
             }
         });
@@ -92,7 +105,7 @@ public class MainWindow  {
             @Override
             public void actionPerformed(ActionEvent e) {
                 window2.dispose();
-                SaldoFrame saldoFrame= new SaldoFrame(account1);
+                SaldoFrame saldoFrame= new SaldoFrame(account1,konta);
                 clip.stop();
             }
         });

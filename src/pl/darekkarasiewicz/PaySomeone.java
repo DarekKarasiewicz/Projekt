@@ -9,33 +9,35 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class PayInFrame {
-    private Account account =new Account();
+public class PaySomeone {
+    private Account account;
     private JFrame frame= new JFrame();
     private JLabel tekst=new JLabel();
     private JLabel saldo=new JLabel();
     private JLabel error=new JLabel();
     private JTextField textField= new JTextField();
+    private JTextField textField1= new JTextField();
     private JButton button=new JButton("Back");
-    private JButton wplac=new JButton("wplac");
+    private JButton wyplac=new JButton("Wypłać");
     private Account [] konta;
 
-    public PayInFrame(Account account, Account[] konta) {
+    public PaySomeone(Account account, Account[] konta) {
         this.konta=konta;
         frame.getContentPane().setBackground(Color.cyan);
-        this.account=account;
         frame.add(tekst);
         frame.add(textField);
+        frame.add(textField1);
         frame.add(button);
-        frame.add(wplac);
+        frame.add(wyplac);
         frame.add(error);
         frame.add(saldo);
         saldo.setBounds(50,200,400,100);
         error.setBounds(50,200,400,100);
         tekst.setBounds(100,50,100,100);
-        textField.setBounds(200,50,100,50);
-        wplac.setBounds(200,120,100,50);
+        textField.setBounds(200,60,100,30);
+        textField1.setBounds(200,20,100,30);
         button.setBounds(150,300,100,40);
+        wyplac.setBounds(200,120,100,50);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(420,420);
@@ -47,26 +49,28 @@ public class PayInFrame {
             e.printStackTrace();
         }
 
-        wplac.addActionListener(new ActionListener() {
+        wyplac.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                int suma=account.getBalance();
-                if (Integer.parseInt(textField.getText())>0){
-                    account.setBalance(suma+Integer.parseInt(textField.getText()));
-                    error.setText(String.format("Saldo po wpłacie : %d",account.getBalance()));
-                }
-                else{
+                    for (Account account1 : konta) {
+                        if(Integer.parseInt(textField1.getText())==account1.getNumber()){
+                            if(Integer.parseInt(textField.getText()) < 0 || Integer.parseInt(textField.getText())>account.getBalance()){
+                                textField.setText(null);
+                                JOptionPane.showMessageDialog(null, "Error", "error", JOptionPane.ERROR_MESSAGE);
+                            }
+                            else {
+                                account.setBalance(account.getBalance()-Integer.parseInt(textField.getText()));
+                                account1.setBalance(account1.getBalance()+Integer.parseInt(textField.getText()));
+                            }
+                        }
+                    }
+                }catch (NumberFormatException a){
                     textField.setText(null);
-                    JOptionPane.showMessageDialog(null,"Nie można wpłacić kwoty ponieżej 0","Error",JOptionPane.ERROR_MESSAGE);
-
-                }}catch (NumberFormatException a){
-                    textField.setText(null);
-                    JOptionPane.showMessageDialog(null, "Kwota musi być liczbą", "error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Kwotra musi być liczbą", "error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
-
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

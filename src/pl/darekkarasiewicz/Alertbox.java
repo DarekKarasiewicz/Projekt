@@ -16,9 +16,11 @@ public class Alertbox {
     private JButton button = new JButton("OK");
     private JFrame alertBox= new JFrame();
     private JLabel labelerror = new JLabel();
+    private Account [] konta;
 
     JPasswordField pin = new JPasswordField();
-    public Alertbox(Account account) {
+    public Alertbox(Account account , Account[] konta) {
+        this.konta=konta;
         alertBox.getContentPane().setBackground(Color.red);
         this.account=account;
         labelerror.setText(String.format("Error"));
@@ -41,7 +43,7 @@ public class Alertbox {
                 try{
                 if(a>0){
                 if (Integer.parseInt(String.valueOf(pin.getPassword()))==(account.getPin())){
-                    PayOutFrame payOutFrame =new PayOutFrame(account);
+                    PayOutFrame payOutFrame =new PayOutFrame(account,konta);
                     alertBox.dispose();
                 }
                 else {
@@ -50,7 +52,7 @@ public class Alertbox {
                 }}
                 else{
                     alertBox.dispose();
-                    MainWindow mainWindow = new MainWindow(account);
+                    MainWindow mainWindow = new MainWindow(account,konta);
                 };}catch (NumberFormatException a){
                     JOptionPane.showMessageDialog(null,"Nr lub pin muszą być liczbą","error",JOptionPane.ERROR_MESSAGE);}
         }

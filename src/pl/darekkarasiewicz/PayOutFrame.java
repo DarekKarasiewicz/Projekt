@@ -19,7 +19,9 @@ public class PayOutFrame {
     private JTextField textField= new JTextField();
     private JButton button=new JButton("Back");
     private JButton wyplac=new JButton("Wypłać");
-    public PayOutFrame(Account account) {
+    private Account [] konta;
+    public PayOutFrame(Account account, Account[] konta) {
+        this.konta=konta;
         frame.getContentPane().setBackground(Color.cyan);
         frame.add(tekst);
         frame.add(textField);
@@ -71,7 +73,7 @@ public class PayOutFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                MainWindow mainWindow= new MainWindow(account);
+                MainWindow mainWindow= new MainWindow(account,konta);
             }
         });
         frame.setResizable(false);

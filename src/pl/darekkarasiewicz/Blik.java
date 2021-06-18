@@ -22,7 +22,9 @@ public class Blik {
     private JLabel label= new JLabel();
     private JFrame frame = new JFrame();
     private JButton button=new JButton("Back");
-    public Blik(Account account) {
+    private Account [] konta;
+    public Blik(Account account , Account[] konta) {
+        this.konta=konta;
         frame.getContentPane().setBackground(Color.orange);
         label.setText("Twój kod blick to : ");
         label.setBounds(90,10,150,40);
@@ -41,7 +43,7 @@ public class Blik {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                MainWindow mainWindow= new MainWindow(account);
+                MainWindow mainWindow= new MainWindow(account,konta);
             }
         });
         try {

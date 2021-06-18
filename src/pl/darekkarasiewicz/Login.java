@@ -79,7 +79,7 @@ public class Login {
                                     Account account1 = account;
                                     if (Integer.parseInt(String.valueOf(password.getPassword())) == account1.getPin()) {
                                         window1.dispose();
-                                        MainWindow mainWindow = new MainWindow(account);
+                                        MainWindow mainWindow = new MainWindow(account ,konta);
                                     } else if (Integer.parseInt(String.valueOf(password.getPassword())) != account1.getPin()) {
                                         labelerror.setVisible(true);
                                         a -= 1;
