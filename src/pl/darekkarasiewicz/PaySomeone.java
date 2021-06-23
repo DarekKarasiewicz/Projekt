@@ -62,6 +62,7 @@ public class PaySomeone {
                             else {
                                 account.setBalance(account.getBalance()-Integer.parseInt(textField.getText()));
                                 account1.setBalance(account1.getBalance()+Integer.parseInt(textField.getText()));
+                                error.setText(String.format("Saldo po przelewie %d",account.getBalance()));
                             }
                         }
                     }

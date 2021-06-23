@@ -59,6 +59,7 @@ public class MainWindow  {
         window2.add(saldoButton);
         window2.add(exit);
         window2.add(paySomone);
+
             try {
                 BufferedImage image = ImageIO.read(new File("C:\\Users\\darek\\IdeaProjects\\Projekt\\grafika\\icon.png"));
                 window2.setIconImage(image);
